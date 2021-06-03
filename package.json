@@ -1,0 +1,43 @@
+{
+  "name": "petfood-analyser-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint",
+    "build": "cross-env NODE_ENV=development webpack",
+    "start": "cross-env NODE_ENV=development && nodemon --watch \"src/**/*.js\" --exec \"yarn webpack && node --inspect dist/index.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean_dist": "rimraf dist",
+    "clean_dep": "rimraf node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricLG/petfoodAnalyserBack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EricLG/petfoodAnalyserBack/issues"
+  },
+  "homepage": "https://github.com/EricLG/petfoodAnalyserBack#readme",
+  "dependencies": {
+    "@types/express": "^4.17.12",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^7.27.0",
+    "eslint-import-resolver-webpack": "^0.13.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-lodash": "^7.2.0",
+    "eslint-webpack-plugin": "^2.5.4",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.7",
+    "rimraf": "^3.0.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
