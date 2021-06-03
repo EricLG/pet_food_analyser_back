@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint",
+    "lint": "eslint .",
     "build": "cross-env NODE_ENV=development webpack",
     "start": "cross-env NODE_ENV=development && nodemon --watch \"src/**/*.js\" --exec \"yarn webpack && node --inspect dist/index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
