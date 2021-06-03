@@ -5,11 +5,8 @@
         "node": true
     },
     "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": ["lodash", "import"],
+    "parser": "@babel/eslint-parser",
+    "plugins": ["@babel", "lodash", "import"],
     "rules": {
         "no-multi-spaces": "error",
         "array-bracket-spacing": ["error", "never"],
@@ -29,6 +26,9 @@
         "prefer-const": "error",
         "import/order": ["error", { "groups": [["builtin", "external"], "internal", "parent", "sibling", "index"], "newlines-between": "always" }],
         "import/no-unresolved": ["error"],
-        "import/named": ["error"]
+        "import/named": ["error"],
+        "@babel/new-cap": "error",
+        "@babel/no-invalid-this": "error",
+        "@babel/no-unused-expressions": "error"
     }
 }

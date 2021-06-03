@@ -8,7 +8,17 @@ module.exports = {
     entry: path.resolve(__dirname, 'src/index.js'),
     externals: [nodeExternals()],
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-    module: {},
+    module: {
+        rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            }
+        ]
+    },
     name: 'server',
     target: 'node',
     output: {
