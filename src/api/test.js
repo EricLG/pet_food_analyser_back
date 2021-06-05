@@ -1,1 +1,1 @@
-export const TEST = 'q'
+export const TEST = 'Hello world'
