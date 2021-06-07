@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
 const ESLintPlugin = require('eslint-webpack-plugin')
 
@@ -26,7 +27,8 @@ module.exports = {
         filename: 'index.js'
     },
     plugins: [
-        new ESLintPlugin()
+        new webpack.BannerPlugin({ banner: 'require(\'source-map-support\').install();', raw: true, entryOnly: false}),
+        new ESLintPlugin(),
     ],
     resolve: {
         extensions: ['.js'],
