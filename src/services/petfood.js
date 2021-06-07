@@ -1,7 +1,5 @@
 import { getPetfoodByAnimal } from '../data/petfood'
 
-export const petfood = ((animal) => {
-    console.log('call petfood for ', animal)
-
-    return getPetfoodByAnimal(animal)
+export const petfood = (async(animal) => {
+    return await getPetfoodByAnimal(animal)
 })

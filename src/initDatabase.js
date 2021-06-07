@@ -1,16 +1,17 @@
 import { MongoClient } from 'mongodb'
 
-export const initDatabase = (() => {
+const host = 'localhost'
+const port = '27017'
+const dbPetfoodAnalyser = 'petfoodAnalyser'
+let mongoClientConnexion
 
-    const url = 'mongodb://localhost:27017'
-    const client = new MongoClient(url, { useUnifiedTopology: true })
-
-    client.connect(function(err) {
-        if (err === null) {
-            console.log('Connected successfully to server')
-        }
-
-        client.close()
+export const initDb = function() {
+    mongoClientConnexion = MongoClient.connect(`mongodb://${host}:${port}`, { useUnifiedTopology: true }).catch(() => {
+        console.error(`Connection with mongodb://${host}:${port} cannot be done`)
+        process.exit(-1)
     })
-})
+}
 
+export const getDbPetfoodAnalyser = async function() {
+    return (await mongoClientConnexion).db(dbPetfoodAnalyser)
+}

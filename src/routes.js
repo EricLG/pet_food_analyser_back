@@ -9,8 +9,7 @@ export const initRoutes = (app => {
         })
     })
 
-    app.get('/catsfood', (req, res) => {
-        console.log('Call Catsfood')
-        res.send(petfood('cats'))
+    app.get('/catsfood', async(req, res) => {
+        res.send(await petfood('cats'))
     })
 })
