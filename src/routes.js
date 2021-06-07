@@ -1,5 +1,5 @@
 import { TEST } from './api'
-import { petfood } from './services/petfood'
+import { petfoodRoutes } from './api/petfood'
 
 export const initRoutes = (app => {
     app.get('/', (req, res) => {
@@ -8,8 +8,6 @@ export const initRoutes = (app => {
             message: 'hello world8'
         })
     })
+    petfoodRoutes(app)
 
-    app.get('/catsfood', async(req, res) => {
-        res.send(await petfood('cats'))
-    })
 })
