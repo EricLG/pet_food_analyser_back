@@ -1,7 +1,7 @@
 import { petfood } from '../services/petfood'
 
 export const petfoodRoutes = (app => {
-    app.get('/catsfood', async(req, res) => {
-        res.send(await petfood('cats'))
+    app.get('/petfood/:animal', async(req, res) => {
+        res.send(await petfood(req.params.animal))
     })
 })
