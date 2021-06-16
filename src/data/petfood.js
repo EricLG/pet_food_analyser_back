@@ -1,3 +1,5 @@
+import { ObjectId } from 'mongodb'
+
 import { getDbPetfoodAnalyser } from '../initDatabase'
 
 const petfoodCollection = 'petfood'
@@ -12,6 +14,13 @@ export const addPetfood = async function(petfood) {
     const db = await getDbPetfoodAnalyser()
 
     return await db.collection(petfoodCollection).insert(petfood)
+}
+
+export const getPetfoodDetail = async function(id) {
+    const db = await getDbPetfoodAnalyser()
+    const _id = new ObjectId(id)
+
+    return await db.collection(petfoodCollection).findOne({_id})
 }
 
 export const initCollection = async function(allow) {
