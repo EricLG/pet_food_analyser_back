@@ -1,9 +1,9 @@
 import { petfoodByAnimal, petfoodDetail } from '../services/petfood'
 
 export const petfoodRoutes = (app => {
-    app.get('/api/petfood/:animal', async(req, res, next) => {
+    app.post('/api/petfood/:animal', async(req, res, next) => {
         try {
-            res.send(await petfoodByAnimal(req.params.animal))
+            res.send(await petfoodByAnimal(req.params.animal, req.body))
         } catch (error) {
             next(error)
         }

@@ -4,10 +4,17 @@ import { getDbPetfoodAnalyser } from '../initDatabase'
 
 const petfoodCollection = 'petfood'
 
-export const getPetfoodByAnimal = async function(animal) {
+export const getPetfoodByAnimal = async function(animal, page) {
     const db = await getDbPetfoodAnalyser()
+    const list = await db.collection(petfoodCollection)
+        .find({animal: animal})
+        .sort({_id: 1})
+        .skip((page.page * page.pageSize) - page.pageSize)
+        .limit(page.pageSize)
+        .toArray()
 
-    return await db.collection(petfoodCollection).find({animal: animal}).toArray()
+    page.collectionSize = await db.collection(petfoodCollection).count({animal: animal})
+    return { list: list, page: page }
 }
 
 export const addPetfood = async function(petfood) {

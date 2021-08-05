@@ -7,6 +7,7 @@ import { initRoutes } from './routes'
 const app = express()
 const PORT = 3000
 
+app.use(express.json())
 initDb()
 initRoutes(app)
 initCollection(false)
